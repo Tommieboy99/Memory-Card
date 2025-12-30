@@ -4,24 +4,8 @@ import './App.css'
 function App() {
   return (
     <>
-    <Header/>
     <MemoryGame/>
     </>
-  )
-}
-
-function Header() {
-  return (
-    <header className='header'>
-      <div className='intro'>
-        <h1>
-          Pokemon Memory Card
-        </h1>
-        <p>
-          Klik op alle afbeeldingen 1 keer en win de game. 
-        </p>
-      </div>
-    </header>
   )
 }
 
@@ -59,15 +43,18 @@ function MemoryGame() {
   }
 
   return (
-    <>
-    <div>
-      <p>Score: {count}</p>
-      <p>Highscore: {highScore}</p>
-    </div>
-    <div className='cardContainer'>
-      {cards.map(card => <MemoryCard key={card} name={card} handleClick={() => handleClick(card)} />)}
-    </div>
-    </>
+    <main className='main'>
+      <div className='score-board'>
+        <p>Score: {count}</p>
+        <p>Highscore: {highScore}</p>
+      </div>
+      <div className='cardContainer'>
+        {cards.map(card => <MemoryCard key={card} name={card} handleClick={() => handleClick(card)} />)}
+      </div>
+      <footer className='footer'>
+        <p>Made by Tommieboy99</p>
+      </footer>
+    </main>
   )
 }
 
@@ -85,7 +72,7 @@ function MemoryCard ( {name, handleClick} ) {
 
   return (
     <button onClick={handleClick}>
-      <img className='pokemonImage' src={imgUrl} alt="" />
+      <img className='pokemonImage' src={imgUrl} alt="" /> 
     </button>
   )
 }
